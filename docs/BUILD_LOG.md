@@ -10,6 +10,7 @@ One entry per step, written by Nicolas: the date, the step, what went wrong (inc
 
 <!-- 
     - Copied over contents from .env.example to .env
-    - 
+    - Made sure that all ruff and lint checks passed
+    - Had an error with my inital `gh pr checks --watch since the version of `astral-sh` was mismatched
 
  -->
