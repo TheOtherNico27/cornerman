@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Node (web/ arrives in Step 7)
+node_modules/
+web/dist/
+
+# Secrets: the real values live only in .env on each machine
+.env
+
+# Local-only planning and course material (never public)
+plans/
+
+# Data that stays on this machine
+data/video/
+data/standin/raw/
+
+# Firmware build output and Wi-Fi credentials (Step 2b)
+firmware/.pio/
+firmware/include/secrets.h
+
+# Terraform state and variables (Step 9)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
