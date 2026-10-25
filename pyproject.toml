@@ -1,0 +1,54 @@
+[project]
+name = "cornerman"
+version = "0.1.0"
+description = "Punch tracking for boxing: a wrist sensor streams motion to a pipeline that counts punches live and reports each round."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Nicolas Peterson" }]
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic>=2",
+    "psycopg[binary,pool]>=3",
+    "redis>=5",
+    "boto3",
+    "numpy",
+    "scipy",
+]
+
+[project.optional-dependencies]
+# Bluetooth only matters on the machine wearing the sensor's gateway, never in containers.
+gateway = ["bleak"]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+    "moto[server]",
+    "httpx",
+    "boto3-stubs[s3,sqs]",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+# E/W: style errors, F: real bugs (unused imports, undefined names), I: import order,
+# B: likely bugs, UP: modern Python syntax.
+select = ["E", "W", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
